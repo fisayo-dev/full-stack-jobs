@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, CreditCard, Mail, Phone, ShieldCheck } from "lucide-react";
+import {
+  CheckCircle2,
+  CreditCard,
+  ExternalLink,
+  Mail,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
 import type { Talent } from "@/lib/talents";
 
 type Props = {
@@ -86,21 +93,87 @@ export default function TalentCheckout({ talent }: Props) {
             )}
 
             {paid && (
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                <a
-                  href={`mailto:${talent.email}`}
-                  className="flex items-center gap-3 rounded-2xl border border-slate-200 p-4 text-sm text-slate-700 transition-colors hover:border-primary hover:text-primary"
-                >
-                  <Mail className="h-4 w-4" />
-                  {talent.email}
-                </a>
-                <a
-                  href={`tel:${talent.phone}`}
-                  className="flex items-center gap-3 rounded-2xl border border-slate-200 p-4 text-sm text-slate-700 transition-colors hover:border-primary hover:text-primary"
-                >
-                  <Phone className="h-4 w-4" />
-                  {talent.phone}
-                </a>
+              <div className="mt-6 space-y-4">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <a
+                    href={`mailto:${talent.email}`}
+                    className="flex items-center gap-3 rounded-2xl border border-slate-200 p-4 text-sm text-slate-700 transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Mail className="h-4 w-4" />
+                    {talent.email}
+                  </a>
+                  <a
+                    href={`tel:${talent.phone}`}
+                    className="flex items-center gap-3 rounded-2xl border border-slate-200 p-4 text-sm text-slate-700 transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Phone className="h-4 w-4" />
+                    {talent.phone}
+                  </a>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Portfolio
+                  </p>
+                  <a
+                    href={talent.portfolio}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                  >
+                    View portfolio
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Social links
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {talent.socialLinks.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-full bg-white px-3 py-1 text-sm text-slate-700 shadow-sm transition-colors hover:text-primary"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Projects
+                  </p>
+                  <div className="mt-3 space-y-3">
+                    {talent.projects.map((project) => (
+                      <div key={project.name} className="rounded-2xl bg-white p-4">
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className="font-semibold text-slate-950">{project.name}</p>
+                            <p className="mt-1 text-sm leading-6 text-slate-600">
+                              {project.description}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {project.stack.map((item) => (
+                            <span
+                              key={item}
+                              className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
 
@@ -119,4 +192,3 @@ export default function TalentCheckout({ talent }: Props) {
     </main>
   );
 }
-
