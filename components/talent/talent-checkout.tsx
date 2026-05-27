@@ -23,7 +23,10 @@ export default function TalentCheckout({ talent }: Props) {
     <main className="min-h-screen bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_45%,#f4f8fb_100%)]">
       <div className="app-container py-8 md:py-12">
         <div className="max-w-3xl">
-          <Link href="/talent" className="text-sm font-medium text-primary hover:underline">
+          <Link
+            href="/talent"
+            className="text-sm font-medium text-primary hover:underline"
+          >
             Back to talent search
           </Link>
 
@@ -37,7 +40,8 @@ export default function TalentCheckout({ talent }: Props) {
                   Hire {talent.name}
                 </h1>
                 <p className="mt-2 text-sm text-slate-600">
-                  Pay once to unlock the full contact details and direct reach out options.
+                  Pay once to unlock the full contact details and direct reach
+                  out options.
                 </p>
               </div>
               <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
@@ -47,12 +51,20 @@ export default function TalentCheckout({ talent }: Props) {
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <div className="rounded-2xl bg-slate-50 p-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Rank</p>
-                <p className="mt-1 text-lg font-semibold text-slate-950">{talent.rank}</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                  Rank
+                </p>
+                <p className="mt-1 text-lg font-semibold text-slate-950">
+                  {talent.rank}
+                </p>
               </div>
               <div className="rounded-2xl bg-slate-50 p-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Qualification</p>
-                <p className="mt-1 text-lg font-semibold text-slate-950">{talent.qualification}</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                  Qualification
+                </p>
+                <p className="mt-1 text-lg font-semibold text-slate-950">
+                  {talent.qualification}
+                </p>
               </div>
             </div>
 
@@ -60,7 +72,9 @@ export default function TalentCheckout({ talent }: Props) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                 Public remark
               </p>
-              <p className="mt-2 text-sm leading-6 text-slate-700">{talent.remark}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-700">
+                {talent.remark}
+              </p>
             </div>
 
             {!paid ? (
@@ -70,7 +84,7 @@ export default function TalentCheckout({ talent }: Props) {
                   Mock payment
                 </div>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
-                  No real payment integration here. Click pay to simulate a successful checkout and unlock contact details.
+                  Pay the fee to access talents details.
                 </p>
                 <button
                   type="button"
@@ -83,7 +97,9 @@ export default function TalentCheckout({ talent }: Props) {
             ) : (
               <div className="mt-6 flex items-center justify-between gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
                 <div>
-                  <p className="text-sm font-semibold text-emerald-900">Payment successful</p>
+                  <p className="text-sm font-semibold text-emerald-900">
+                    Payment successful
+                  </p>
                   <p className="text-sm text-emerald-800">
                     Contact details are now visible.
                   </p>
@@ -151,10 +167,15 @@ export default function TalentCheckout({ talent }: Props) {
                   </p>
                   <div className="mt-3 space-y-3">
                     {talent.projects.map((project) => (
-                      <div key={project.name} className="rounded-2xl bg-white p-4">
+                      <div
+                        key={project.name}
+                        className="rounded-2xl bg-white p-4"
+                      >
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <p className="font-semibold text-slate-950">{project.name}</p>
+                            <p className="font-semibold text-slate-950">
+                              {project.name}
+                            </p>
                             <p className="mt-1 text-sm leading-6 text-slate-600">
                               {project.description}
                             </p>
@@ -176,16 +197,6 @@ export default function TalentCheckout({ talent }: Props) {
                 </div>
               </div>
             )}
-
-            <div className="mt-6 rounded-2xl border border-dashed border-slate-200 p-4 text-sm text-slate-600">
-              <div className="flex items-center gap-2 font-semibold text-slate-900">
-                <ShieldCheck className="h-4 w-4 text-primary" />
-                Hidden before payment
-              </div>
-              <p className="mt-2 leading-6">
-                The full contact details stay hidden until checkout is successful. Before that, only rank, qualification, remark, and price are visible.
-              </p>
-            </div>
           </section>
         </div>
       </div>
