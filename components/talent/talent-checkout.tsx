@@ -8,7 +8,6 @@ import {
   ExternalLink,
   Mail,
   Phone,
-  ShieldCheck,
 } from "lucide-react";
 import type { Talent } from "@/lib/talents";
 
