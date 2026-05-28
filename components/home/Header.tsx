@@ -12,8 +12,6 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "talent", to: "/talent" },
-  { label: "signup", to: "signup" },
-  { label: "login", to: "login" },
 ];
 
 const Header = () => {

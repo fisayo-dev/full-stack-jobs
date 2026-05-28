@@ -35,14 +35,14 @@ const Hero = () => {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/signup"
+              href="/talent"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-white shadow-lg shadow-blue-500/20 transition-transform hover:-translate-y-0.5"
             >
               Get started
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="/login"
+              href="/talent"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/80 px-6 py-3 text-sm font-medium text-slate-700 shadow-sm backdrop-blur transition-colors hover:border-blue-200 hover:text-primary"
             >
               See how it works
